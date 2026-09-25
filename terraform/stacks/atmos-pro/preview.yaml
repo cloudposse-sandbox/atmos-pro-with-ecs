@@ -11,6 +11,14 @@ apply-wf-config: &apply-wf-config
       stack: "{{ .atmos_stack }}"
       github_environment: "{{ .vars.stage }}"
 
+destroy-wf-config: &destroy-wf-config
+  atmos-terraform-destroy.yaml:
+    inputs:
+      component: "{{ .atmos_component }}"
+      stack: "{{ .atmos_stack }}"
+      github_environment: "{{ .vars.stage }}"
+
+
 settings:
   pro:
     enabled: true
@@ -24,7 +32,7 @@ settings:
       reopened:
         workflows: *apply-wf-config
       merged:
-        workflows: *apply-wf-config
+        workflows: *destroy-wf-config
     merge_group:
       checks_requested:
         workflows: *apply-wf-config
