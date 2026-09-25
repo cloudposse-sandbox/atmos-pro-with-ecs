@@ -47,11 +47,6 @@ jobs:
       github.event.action != 'closed' ||
       github.event.pull_request.merged == true
     runs-on: ["ubuntu-latest"]
-    container:
-      image: ghcr.io/cloudposse/atmos:${{ vars.ATMOS_VERSION }}
-    defaults:
-      run:
-        shell: bash
     steps:
       - name: Install Docker CLI
         run: apt-get update && apt-get install -y docker.io bc
