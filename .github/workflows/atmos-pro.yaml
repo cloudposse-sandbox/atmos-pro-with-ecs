@@ -48,6 +48,12 @@ jobs:
       github.event.pull_request.merged == true
     runs-on: ["ubuntu-latest"]
     steps:
+      - name: Install Atmos
+        uses: cloudposse/github-action-setup-atmos@v3
+        with:
+          install-wrapper: false
+          atmos-version: ${{ vars.ATMOS_VERSION }}
+              
       - name: Checkout
         uses: actions/checkout@v6
 
