@@ -33,9 +33,3 @@ settings:
         workflows: *apply-wf-config
       merged:
         workflows: *destroy-wf-config
-    merge_group:
-      checks_requested:
-        workflows: *apply-wf-config
-    release:
-      released:
-        workflows: *apply-wf-config
