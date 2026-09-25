@@ -1,5 +1,6 @@
 import:
   - _default.yaml
+  - atmos-pro/preview.yaml
   - defaults/app.yaml
   - deps/*
 

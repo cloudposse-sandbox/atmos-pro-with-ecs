@@ -15,20 +15,16 @@ settings:
   pro:
     enabled: true
     drift_detection:
-      enabled: true
-      detect:
-        workflows: *plan-wf-config
-      remediate:
-        workflows: *apply-wf-config
+      enabled: false
     pull_request:
       opened:
-        workflows: *plan-wf-config
+        workflows: *apply-wf-config
       synchronize:
-        workflows: *plan-wf-config
+        workflows: *apply-wf-config
       reopened:
-        workflows: *plan-wf-config
+        workflows: *apply-wf-config
       merged:
-        workflows: *plan-wf-config
+        workflows: *apply-wf-config
     merge_group:
       checks_requested:
         workflows: *apply-wf-config
