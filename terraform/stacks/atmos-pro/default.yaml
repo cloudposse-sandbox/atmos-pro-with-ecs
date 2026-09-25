@@ -14,24 +14,24 @@ apply-wf-config: &apply-wf-config
 settings:
   pro:
     enabled: true
-    # drift_detection:
-    #   enabled: true
-    #   detect:
-    #     workflows: *plan-wf-config
-    #   remediate:
-    #     workflows: *apply-wf-config
-    # pull_request:
-    #   opened:
-    #     workflows: *plan-wf-config
-    #   synchronize:
-    #     workflows: *plan-wf-config
-    #   reopened:
-    #     workflows: *plan-wf-config
-    #   merged:
-    #     workflows: *plan-wf-config
-    # merge_group:
-    #   checks_requested:
-    #     workflows: *apply-wf-config
-    # release:
-    #   released:
-    #     workflows: *apply-wf-config
+    drift_detection:
+      enabled: true
+      detect:
+        workflows: *plan-wf-config
+      remediate:
+        workflows: *apply-wf-config
+    pull_request:
+      opened:
+        workflows: *plan-wf-config
+      synchronize:
+        workflows: *plan-wf-config
+      reopened:
+        workflows: *plan-wf-config
+      merged:
+        workflows: *plan-wf-config
+    merge_group:
+      checks_requested:
+        workflows: *apply-wf-config
+    release:
+      released:
+        workflows: *apply-wf-config
