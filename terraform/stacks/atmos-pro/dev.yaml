@@ -11,31 +11,24 @@ apply-wf-config: &apply-wf-config
       stack: "{{ .atmos_stack }}"
       github_environment: "{{ .vars.stage }}"
 
-destroy-wf-config: &destroy-wf-config
-  atmos-terraform-destroy.yaml:
-    inputs:
-      component: "{{ .atmos_component }}"
-      stack: "{{ .atmos_stack }}"
-      github_environment: "{{ .vars.stage }}"
-
-
 settings:
   pro:
     enabled: true
     drift_detection:
-      enabled: false
+      enabled: true
+      detect:
+        workflows: *plan-wf-config
+      remediate:
+        workflows: *apply-wf-config
     pull_request:
       opened:
-        workflows: *apply-wf-config
+        workflows: *plan-wf-config
       synchronize:
-        workflows: *apply-wf-config
+        workflows: *plan-wf-config
       reopened:
-        workflows: *apply-wf-config
+        workflows: *plan-wf-config
       merged:
-        workflows: *destroy-wf-config
+        workflows: *plan-wf-config
     merge_group:
       checks_requested:
-        workflows: *apply-wf-config
-    release:
-      released:
         workflows: *apply-wf-config
