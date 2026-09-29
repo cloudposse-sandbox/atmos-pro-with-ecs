@@ -69,7 +69,7 @@ jobs:
           organization: cloudposse-sandbox
           repository: atmos-pro-with-ecs
           registry: ${{ vars.ECR_REGISTRY }}
-          docker-metadata-pr-head-sha: true
+          docker-metadata-pr-head-sha: ${{ github.event_name == 'pull_request' }}
           workdir: app
           driver-opts: image=mirror.gcr.io/moby/buildkit:buildx-stable-1
 
