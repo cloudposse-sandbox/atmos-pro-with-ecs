@@ -79,7 +79,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          # ref: ${{ github.event.pull_request.merged && github.event.pull_request.merge_commit_sha || github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
       - name: Determine Affected Stacks
@@ -87,4 +86,5 @@ jobs:
           ATMOS_PRO_WORKSPACE_ID: ${{ vars.ATMOS_PRO_WORKSPACE_ID }}
           ATMOS_PRO_BASE_URL: ${{ vars.ATMOS_PRO_BASE_URL }}          
         run: |
-          atmos describe affected --upload
+          PREV=$(git describe --tags --abbrev=0 "${{ github.event.release.tag_name }}^")
+          atmos describe affected --ref "refs/tags/$PREV" --upload --clone-target-ref=true
