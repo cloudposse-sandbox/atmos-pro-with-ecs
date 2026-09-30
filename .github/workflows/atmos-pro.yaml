@@ -2,7 +2,11 @@ name: Atmos Pro
 on:
   pull_request:
     branches: ["main"]
-    types: [opened, synchronize, reopened, closed]
+    types: 
+      - opened
+      - synchronize
+      - reopened
+      # - closed
   merge_group:
     branches: ["main"]
 
