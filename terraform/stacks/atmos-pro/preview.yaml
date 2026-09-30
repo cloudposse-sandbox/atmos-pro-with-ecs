@@ -31,5 +31,6 @@ settings:
         workflows: *apply-wf-config
       reopened:
         workflows: *apply-wf-config
-      merged:
+    merge_group:
+      checks_requested:
         workflows: *destroy-wf-config
