@@ -86,5 +86,6 @@ jobs:
           ATMOS_PRO_WORKSPACE_ID: ${{ vars.ATMOS_PRO_WORKSPACE_ID }}
           ATMOS_PRO_BASE_URL: ${{ vars.ATMOS_PRO_BASE_URL }}          
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           PREV=$(git describe --tags --abbrev=0 "${{ github.event.release.tag_name }}^")
           atmos describe affected --ref "refs/tags/$PREV" --upload --clone-target-ref=true
