@@ -31,5 +31,7 @@ settings:
       checks_requested:
         workflows: *plan-wf-config
     release:
+      released:
+        workflows: *apply-wf-config
       published:
         workflows: *apply-wf-config
