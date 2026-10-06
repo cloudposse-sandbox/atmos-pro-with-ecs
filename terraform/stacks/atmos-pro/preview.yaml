@@ -34,3 +34,6 @@ settings:
     merge_group:
       checks_requested:
         workflows: *destroy-wf-config
+    release:
+      released:
+        workflows: *plan-wf-config
