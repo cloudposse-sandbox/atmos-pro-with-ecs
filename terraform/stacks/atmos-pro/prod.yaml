@@ -33,5 +33,3 @@ settings:
     release:
       released:
         workflows: *apply-wf-config
-      published:
-        workflows: *apply-wf-config
