@@ -30,6 +30,3 @@ settings:
     merge_group:
       checks_requested:
         workflows: *apply-wf-config
-    release:
-      released:
-        workflows: *plan-wf-config
