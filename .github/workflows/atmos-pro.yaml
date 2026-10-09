@@ -110,4 +110,4 @@ jobs:
           ATMOS_PRO_BASE_URL: ${{ vars.ATMOS_PRO_BASE_URL }}          
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          atmos describe affected --upload
+          atmos describe affected
