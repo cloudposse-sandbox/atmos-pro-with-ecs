@@ -22,7 +22,6 @@ permissions:
 
 env:
   ATMOS_PROFILE: github
-  APP_IMAGE: "${{ vars.ECR_REGISTRY }}/cloudposse-sandbox/atmos-pro-with-ecs:sha-${{ github.sha }}"  
 
 jobs:
   test:
