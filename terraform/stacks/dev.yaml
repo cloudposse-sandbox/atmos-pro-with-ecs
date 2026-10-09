@@ -1,5 +1,6 @@
 import:
   - _default.yaml
+  - atmos-pro/dev.yaml
   - defaults/app.yaml
   - deps/*
 
@@ -17,7 +18,7 @@ components:
     app:
       settings:
         pro:
-          enabled: true    
+          enabled: false    
       metadata:
         # Override Terraform workspace
         terraform_workspace: "atmos-pro-with-ecs-{{ .atmos_stack }}-{{ .atmos_component }}"
