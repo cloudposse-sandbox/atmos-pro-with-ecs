@@ -55,7 +55,7 @@ jobs:
         id: deployment
         with:
           step: start
-          environment: ${{ inputs.github_environment }}
+          env: ${{ inputs.github_environment }}
           # github.head_ref работает для PR, а github.ref_name — для workflow_dispatch
           ref: ${{ inputs.sha }}
 
