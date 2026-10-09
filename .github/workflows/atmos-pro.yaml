@@ -6,7 +6,7 @@ on:
       - opened
       - synchronize
       - reopened
-      # - closed
+      - closed
   merge_group:
     branches: ["main"]
 
