@@ -25,6 +25,7 @@ permissions:
   contents: read
   checks: write
   statuses: write
+  deployments: write
 
 env:
   ATMOS_PROFILE: github
@@ -48,6 +49,16 @@ jobs:
         with:
           ref: ${{ inputs.sha }}
 
+      - name: Start GitHub Deployment
+        uses: bobheadxi/deployments@v1
+        if: ${{ inputs.github_environment == 'preview' }}
+        id: deployment
+        with:
+          step: start
+          environment: ${{ inputs.github_environment }}
+          # github.head_ref работает для PR, а github.ref_name — для workflow_dispatch
+          ref: ${{ inputs.sha }}
+
       - name: Deploy
         id: deploy
         shell: bash
@@ -58,3 +69,11 @@ jobs:
           GITHUB_SHA: ${{ inputs.sha }}
         run: |
           atmos terraform deploy ${{ inputs.component }} -s ${{ inputs.stack }} --upload-status
+
+      - name: Update Deployment Status
+        uses: bobheadxi/deployments@v1
+        if: ${{ always() && inputs.github_environment == 'preview' }}
+        with:
+          step: finish
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}      
