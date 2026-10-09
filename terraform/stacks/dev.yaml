@@ -15,9 +15,9 @@ auth:
 components:
   terraform:
     app:
-    settings:
-      pro:
-        enabled: true    
+      settings:
+        pro:
+          enabled: true    
       metadata:
         # Override Terraform workspace
         terraform_workspace: "atmos-pro-with-ecs-{{ .atmos_stack }}-{{ .atmos_component }}"
