@@ -57,4 +57,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_SHA: ${{ inputs.sha }}
         run: |
-          atmos terraform deploy ${{ inputs.component }} -s ${{ inputs.stack }}
+          atmos terraform deploy ${{ inputs.component }} -s ${{ inputs.stack }} --upload-status
