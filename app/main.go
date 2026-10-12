@@ -98,6 +98,7 @@ func main() {
 		color = "blue"
 	}
 
+	
 	addr := os.Getenv("LISTEN")
 	if len(addr) == 0 {
 		addr = ":8080"
