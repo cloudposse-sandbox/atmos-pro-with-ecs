@@ -51,7 +51,6 @@ jobs:
       github.event.action != 'closed' ||
       github.event.pull_request.merged == true
     runs-on: ["ubuntu-latest"]
-    environment: prod
     steps:
       - name: Install Atmos
         uses: cloudposse/github-action-setup-atmos@v3
