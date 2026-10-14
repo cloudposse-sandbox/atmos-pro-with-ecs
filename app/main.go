@@ -97,6 +97,7 @@ func main() {
 	if len(color) == 0 {
 		color = "green"
 	}
+
 	
 	addr := os.Getenv("LISTEN")
 	if len(addr) == 0 {
