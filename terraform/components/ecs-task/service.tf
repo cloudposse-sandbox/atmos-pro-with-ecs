@@ -75,6 +75,8 @@ module "alb_ingress" {
 }
 
 resource "aws_ecs_service" "default" {
+  count = module.this.enabled ? 1 : 0
+
   cluster = var.ecs.cluster_arn
   name    = module.this.id
 
