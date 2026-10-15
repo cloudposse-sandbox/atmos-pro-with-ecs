@@ -78,7 +78,7 @@ resource "aws_ecs_service" "default" {
   cluster = var.ecs.cluster_arn
   name    = module.this.id
 
-  task_definition = join("", aws_ecs_task_definition.*.default.arn)
+  task_definition = join("", aws_ecs_task_definition.default.*.arn)
 
   scheduling_strategy = "REPLICA"
 
