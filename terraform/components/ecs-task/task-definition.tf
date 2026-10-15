@@ -9,6 +9,8 @@ module "task_label" {
 
 // Define an ECS task definition
 resource "aws_ecs_task_definition" "default" {
+  count = local.ecs_service_enabled ? 1 : 0
+
   family                = module.this.id
   container_definitions = local.container_definitions_json
 
