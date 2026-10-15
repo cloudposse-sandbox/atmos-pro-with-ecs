@@ -119,4 +119,4 @@ jobs:
               )
             ) }}"
         run: |
-          atmos describe affected --upload --logs-level Debug
+          atmos describe affected --upload
