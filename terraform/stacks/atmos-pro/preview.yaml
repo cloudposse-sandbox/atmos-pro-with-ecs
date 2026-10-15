@@ -21,7 +21,7 @@ destroy-wf-config: &destroy-wf-config
 
 settings:
   pro:
-    enabled: !env PREVIEW_ENABLED "false"
+    enabled: true
     drift_detection:
       enabled: false
     pull_request:
