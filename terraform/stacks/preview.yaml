@@ -13,10 +13,6 @@ auth:
     plat-dev/terraform:
       default: true
   
-settings:
-  pro:
-    enabled: '{{ env "PREVIEW_ENABLED" | default "true" }}'
-
 components:
   terraform:
     app:
@@ -24,6 +20,7 @@ components:
         # Override Terraform workspace
         terraform_workspace: '{{ .vars.github_repo_name }}-{{ .atmos_stack }}-{{ .atmos_component }}-{{ env "PR_NUMBER" | default "0" }}'
       vars:
+        enabled: '{{ env "PREVIEW_ENABLED" | default "true" }}'
         attributes:
           - '{{ env "PR_NUMBER" | default "0" }}'
         service:
